@@ -12,12 +12,11 @@ using SudokuApi.Models;
 
 namespace SudokuApi.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
     public class SudokuController : ControllerBase
     {
         [HttpGet()]
-        [Route("Generate/{difficulty}")]
+        [Route("/Generate/{difficulty}")]
         public ActionResult<SudokuPuzzleDTO> Generate(SudokuDifficulty difficulty, int? seed)
         {
             ISudokuGenerator generator = new SudokuGenerator();
@@ -33,7 +32,7 @@ namespace SudokuApi.Controllers
         }
 
         [HttpPost()]
-        [Route("Solve")]
+        [Route("/Solve")]
         public ActionResult<SudokuPuzzleDTO> Solve(SudokuPuzzleDTO puzzle)
         {
             ISudokuValidator validator = new SudokuValidator();
